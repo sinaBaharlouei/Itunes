@@ -1,0 +1,96 @@
+<?php
+$controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
+$action = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
+
+		<link rel="stylesheet" href="/css/bootstrap.css"/>
+		<link rel="stylesheet" href="/css/plugins.css"/>
+		<link rel="stylesheet" href="/css/main.css"/>
+		<link rel="stylesheet" href="/css/themes.css"/>
+		<script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		<script src="/js/vendor/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div id="page-container">
+	<!-- Header -->
+	<!-- Add the class .navbar-fixed-top or .navbar-fixed-bottom for a fixed header on top or bottom respectively -->
+	<!-- <header class="navbar navbar-inverse navbar-fixed-top"> -->
+	<!-- <header class="navbar navbar-inverse navbar-fixed-bottom"> -->
+	<header class="navbar navbar-inverse">
+	<!-- Navbar Inner -->
+	<div class="navbar-inner remove-radius remove-box-shadow">
+	<!-- div#container-fluid -->
+	<div class="container-fluid">
+	<!-- Mobile Navigation, Shows up  on smaller screens -->
+	<ul class="nav pull-right visible-phone visible-tablet">
+		<li class="divider-vertical remove-margin"></li>
+		<li>
+			<!-- It is set to open and close the main navigation on smaller screens. The class .nav-collapse was added to aside#page-sidebar -->
+			<a href="javascript:void(0)" data-toggle="collapse" data-target=".nav-collapse">
+				<i class="icon-reorder"></i>
+			</a>
+		</li>
+	</ul>
+	<!-- END Mobile Navigation -->
+
+	<!-- Logo -->
+	<a href="" class="brand"><img src="/img/logo.png" width="30" height="30" alt="logo"></a>
+
+
+	</div>
+	<!-- END div#container-fluid -->
+	</div>
+	<!-- END Navbar Inner -->
+	</header>
+	<!-- END Header -->
+
+	<!-- Inner Container -->
+	<div id="inner-container"><!-- Sidebar -->
+		<aside id="page-sidebar" class="nav-collapse collapse">
+
+			<!-- Primary Navigation -->
+			<nav id="primary-nav">
+				<ul>
+					<li>
+						<a href="/add/index" <?php if($controller == 'add') :?>class="active" <?php endif; ?>><i class="icon-plus"></i>Add new Entries</a>
+					</li>
+
+					<li>
+						<a href="/view/user" <?php if($controller == 'view') :?>class="active" <?php endif; ?>><i class="icon-picture"></i>View</a>
+					</li>
+				</ul>
+			</nav>
+
+		</aside>
+		<div id="page-content">
+			<ul id="nav-info" class="clearfix">
+				<li><a href="/add/index"><i class="icon-home"></i></a></li>
+				<li class="active"><a href="">Dashboard</a></li>
+			</ul>
+
+			<?php if(isset($_SESSION['success'])): ?>
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<strong><?php echo $_SESSION['message'];?></strong>
+				</div>
+			<?php unset($_SESSION['success']);
+				  endif; ?>
+
+			<?php echo $this->layout()->content ?>
+		</div>
+		<!-- END Page Content -->
+
+		<!-- Footer -->
+		<footer>
+			<span id="year-copy">2015</span> © <strong>Itunes project</strong> <i class="icon-heart"></i> by <strong><a href="#" target="_blank">Sina Baharlouei</a></strong>
+		</footer>
+		<!-- END Footer -->
+	</div>
+	<!-- END Inner Container -->
+	</div>
+	</body>
+	</html>

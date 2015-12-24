@@ -1,0 +1,32 @@
+<form class="form-horizontal form-box" action="/add/addreview/user_id/<?php echo $this->user_id;?>" method="post">
+	<h4 class="form-box-header">New Review</h4>
+	<div class="form-box-content">
+
+		<div class="control-group">
+			<label class="control-label">Song ID</label>
+			<div class="controls">
+				<input  data-placement="right" type="text" name="song_id">
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<label class="control-label" for="example-textarea-large">Review Text</label>
+			<div class="controls">
+				<textarea id="example-textarea-large" class="textarea-large" rows="5" name="text" cols="50"></textarea>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">Star</label>
+			<div class="controls">
+				<input  data-placement="right" type="text" name="star">
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<button class="btn btn-success"><i class="icon-save"></i> Save</button>
+		</div>
+
+	</div>
+</form>
